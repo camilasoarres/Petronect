@@ -2,7 +2,7 @@ const ADD_ITEM = 'search/search/ADD_ITEM';
 const PUT_FAVORITE = 'favorite/favorite/PUT_FAVORITE';
 
 const initialState = {
-	search: [],
+	keyword: [],
 	favoriteList: [],
 	oportunities: {
 		Test1: {
@@ -102,7 +102,10 @@ const initialState = {
 export default function (state = initialState, action) {
 	switch (action.type) {
 	case ADD_ITEM:
-		return { ...state, search: state.search.concat([action.info]) };
+		return { 
+				...state,
+				keyword: state.keyword.concat([action.info])
+		};
 	case PUT_FAVORITE:
 		return {
 			...state,

@@ -20,7 +20,7 @@ import startHover from '../../assets/icon/estrela-cinza.svg';
 import DetailsOportunities from './DetailsOportunities';
 
 const mapStateToProps = (state) => ({
-	search: state.oportunities.search,
+	keyword: state.oportunities.keyword,
 	oportunities: state.oportunities.oportunities,
 });
 
@@ -109,6 +109,34 @@ const InputHead = styled.input`
 	height: 95%;
   border:none;
 	outline: none;
+`;
+
+const WrapperKeyword = styled.div`
+	display: flex;
+`;
+
+const KeiwordBox = styled.div`
+	width: 89px;
+	height: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	background: #AADF00;
+	border-radius: 10px;
+	opacity: 0.2;
+`;
+
+const KeiwordText = styled.p`
+	font-size: .85rem;
+	color: #404040;
+`;
+
+const ClosedKeyword = styled.button`
+	width: 20px;
+	height: 20px;
+	background: #FFFFFF;
+	border: 0.5px solid #115680;
+	border-radius: 19px;
 `;
 
 const ImgShare = styled.img`
@@ -209,17 +237,43 @@ class RelevanceMatch extends Component {
 	handleInputChange = (event) => {
 		event.preventDefault();
 		this.setState({
-			search: event.target.value,
+			keyword: event.target.value,
 		});
 	}
 
 	handleKeyPress = (event) => {
 		if (event.key === 'Enter') {
 			event.preventDefault();
-			this.props.addItem(this.state.search);
-			console.log('enter press here! ');
+			const item = {
+				id: new Date().getTime(),
+				keyword: event.target.value,
+			};
+			this.props.addItem(this.state.keyword);
+			console.log('enter press here!', item);
 		}
 	}
+
+
+	renderList = () => {
+		return this.props.keyword.map((keyword) => {
+
+			const handleClick = () => {
+				this.props.removeItem(keyword.id);
+			};
+
+			return 	(
+				<KeiwordBox 
+					key={keyword.id}
+					className='btn'
+				>
+					<KeiwordText>{keyword}{keyword.dane}</KeiwordText>
+					<ClosedKeyword onClick={handleClick}>X</ClosedKeyword> 
+				</KeiwordBox>
+			);
+		});
+	}
+
+
 
 	handleFavorite = (event, id) => {
 		event.stopPropagation();
@@ -285,6 +339,9 @@ class RelevanceMatch extends Component {
   								<img src={this.state.hoverFavorites ? startHover : start}/>
                 Favoritos</Button>
   						</Form>
+							<WrapperKeyword>
+								{this.props.keyword.length > 0 ? this.renderList() : null}
+							</WrapperKeyword>
   					</WrapperForm>
   				</WrapperHead>
   			</Content>
