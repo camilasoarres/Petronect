@@ -370,7 +370,24 @@ class RelevanceMatch extends Component {
   								{item.deadLineLastOne}
   							</TableBody>
   						</TableRow>
-  					))}
+						))}
+						<Fragment>
+							{values(this.props.oportunities).filter(item => item.favorite === true).map((item) => (
+								<TableRow key={item} onClick={this.handleModalOportunities}>
+									<TableBody onClick={(event) => { this.handleFavorite(event, item.id); }}>
+										<img src={item.favorite ? start : startHover}/>
+									</TableBody>
+									<TableBody>{item.fit}</TableBody>
+									<TableBody>{item.category}</TableBody>
+									<TableBody>{item.id}</TableBody>
+									<TableBody>{item.titleDescription}</TableBody>
+									<TableBody>
+										{item.deadLineInitial}
+										{item.deadLineLastOne}
+									</TableBody>
+								</TableRow>
+							))}
+						</Fragment>
   				</Table>
 					{isShowFavorites && this.showFavorites()}
   			</WrapperTable>

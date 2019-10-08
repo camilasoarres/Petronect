@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 // Components
-import SideBar from './SideBar';
+import SideBar from '../SideBar';
 import RelevanceMatch from './RelevanceMatch';
 
 const Container = styled.div`

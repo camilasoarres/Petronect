@@ -1,25 +1,15 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-// Components
-import DashBoard from './component/DashBoard/DashBoard';
-import Login from './component/Login/Login';
+import RoutesConfig from './RoutesConfig';
 
 class App extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			screen: 'login',
-		};
-	}
-
 	render() {
-		switch (this.state.screen) {
-		case 'login':
-			// return (<Login/>);
-		case 'dashboard':
-		default:
-			return (<DashBoard/>);
-		}
+		return (
+			<Router>
+				<RoutesConfig />
+			</Router>
+		);
 	}
 }
 

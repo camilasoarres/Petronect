@@ -27,7 +27,16 @@ const Container = styled.div`
 	width: 100%;
 	min-height: 100vh;
 	background: transparent linear-gradient(180deg,#115680 0%,#116EA0 100%) 0% 0% no-repeat padding-box;
-	padding: 0 5vw;
+	padding: 0 4rem;
+	@media (max-width: 768px) {
+		padding-bottom: 4rem;
+		align-items: center;
+		flex-direction: column-reverse;
+	}
+	@media (max-width: 450px) {
+		padding: 1rem;
+		justify-content: flex-end;
+	}
 `;
 
 const InputContainer = styled.form`
@@ -35,14 +44,30 @@ const InputContainer = styled.form`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	width: 40%;
+	width: 55%;
 	height: 90vh;
 	background: #FFF;
 	border-radius: 0 0 6px 6px;
+	@media (max-width: 768px) {
+		width: 85%;
+		height: 80vh;
+		border-radius: 6px;
+	}
+	@media (max-width: 450px) {
+		width: 100%;
+		height: 80vh;
+		display: flex;
+    justify-content: space-evenly;
+		border-radius: 6px;
+	}
 `;
 
 const Logo = styled.img`
-	width: 40%;
+	width: 35%;
+	padding: 1rem 0;
+	@media (max-width: 450px) {
+		width: 55%;
+	}
 `;
 
 const InputBox = styled.span`
@@ -52,6 +77,12 @@ const InputBox = styled.span`
 	justify-content: ${(props) => props.alt && 'space-between'};
 	width: 55%;
 	margin-top: ${(props) => props.last && '.5rem'};
+	@media (max-width: 768px) {
+		width: 60%;
+	}
+	@media (max-width: 450px) {
+		width: 90%;
+	}
 `;
 
 const Label = styled.label`
@@ -96,13 +127,17 @@ const Button = styled.button`
 	border: none;
 	border-radius: 4px;
 	outline: none;
-
 	text-align: center;
 	font: 500 1rem eurostile, sans serif;
 	letter-spacing: 0;
 	color: #FAFAFA;
+	@media (max-width: 768px) {
+		width: 60%;
+	}
+	@media (max-width: 450px) {
+		width: 90%;
+	}
 `;
-
 
 const AltBox = styled.span`
 	display: flex;
@@ -110,10 +145,18 @@ const AltBox = styled.span`
 	justify-content: space-between;
 	width: 52.5%;
 	margin-top: 3rem;
+	@media (max-width: 768px) {
+		margin-top: 1rem;
+		width: 60%;
+	}
+	@media (max-width: 450px) {
+		margin-top: 0;
+		width: 90%;
+	}
 `;
 
 const Link = styled.p`
-	font: 400 18px Eurostile, sans serif;
+	font: 400 1rem Eurostile, sans serif;
 	letter-spacing: 0;
 	color: ${(props) => props.color || '#505050'} ;
 	text-decoration: ${(props) => (props.color ? 'underline' : 'none')} ;
@@ -127,22 +170,54 @@ const LoginBox = styled.div`
 	width: 60%;
 	height: 90vh;
 	border-radius: 0 0 6px 6px;
+	@media (max-width: 768px) {
+		width: 95%;
+    height: 65vh;
+		justify-content: space-evenly;
+		flex-direction: row-reverse;
+	}
+	@media (max-width: 450px) {
+		display: none;
+	}
 `;
 
 const Img = styled.img`
 	width: 60%;
+	@media (max-width: 768px) {
+    width: 50%;
+	}
 `;
 
 const TextBox = styled.span`
 	width: 60%;
+	@media (max-width: 768px) {
+    width: 35%;
+	}
 `;
 
 const Text = styled.p`
-	margin: 3rem 0;
+	margin: ${(props) => (props.error ? '0' : '1rem 0')};
 	font: 700 18px eurostile, sans serif;
 	letter-spacing: 0.18px;
-	line-height: 2.5rem;
-	color: #FFFFFF;
+	line-height: 2rem;
+	color: ${(props) => (props.error ? '#D53B40' : '#FFFFFF')};
+	font-size: .80rem;
+	@media (max-width: 768px) {
+		margin: ${(props) => (props.error ? '.1rem 0' : '0')};
+	}
+`;
+
+const LoginMessageError = styled.span`
+	// width: 55%;
+	width: 48%;
+	display: flex;
+	justify-content: flex-end;
+	@media	(max-width: 768px) {
+		width: 55%;
+	}
+	@media (max-width: 450px) {
+		width: 85%;
+	}
 `;
 
 class Login extends Component {
@@ -150,6 +225,7 @@ class Login extends Component {
 		super(props);
 		this.state = {
 			showPassword: true,
+			error: true,
 		};
 	}
 
@@ -165,6 +241,18 @@ class Login extends Component {
 			username: this.loginEmailRef.value.toLowerCase(),
 			password: this.loginPasswordRef.value,
 		});
+	}
+
+	renderError = () => {
+		if (this.state.error) {
+			return (
+				<LoginMessageError>
+					<Text error>Endereço de email e/ou senha incorretos</Text>
+				</LoginMessageError>
+			);
+		}
+
+		return null;
 	}
 
 	render() {
@@ -196,6 +284,7 @@ class Login extends Component {
 							onClick={this.showPassword}
 						/>
 					</InputBox>
+					{ this.state.error && this.renderError() }
 					<Button>
 						Entrar
 					</Button>
