@@ -6,7 +6,7 @@ export const getAllOpportunitesMiddleware = () => axios({
 	url: `${API_URL}/opportunities?page=0&limit=20`,
 	method: 'get',
 	headers: {
-		Authorization: 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJrZWx2aW4uZi5hbG1laWRhQGdtYWlsLmNvbSIsImV4cCI6MTU3MDQ1MTI3OH0.LiPghaFhMzMaY_gmSEb0gCBbu_egAHufDqTZP0g3LOyVTzpP_3Q2YzZfdPFHZHIdGJnV0cVebXQGb7zbkO8AiQ',
+		Authorization: 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJrZWx2aW4uZi5hbG1laWRhQGdtYWlsLmNvbSIsImV4cCI6MTU3MTQ5NDg2OX0.YKIwtyA1jrBXiHv7Uo_AXPpRnAoZWyoZsDvEHewWJ9YbQe7Igm5no1x8Qr4eBNMciHw9765UQdpL23RCFdJLoA',
 	},
 });
 
