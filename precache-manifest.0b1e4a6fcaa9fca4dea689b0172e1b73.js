@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d61624204a0d7e87b09b9999b20f8c8d",
+    "revision": "2e41b63bc5ca5bd3d6288bd05b8a5b7f",
     "url": "/Petronect/index.html"
   },
   {
-    "revision": "79b2af0c89263a0ccd0c",
+    "revision": "b29e1924590b5b619a53",
     "url": "/Petronect/static/css/main.790965af.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Petronect/static/js/2.cd6c1363.chunk.js"
   },
   {
-    "revision": "79b2af0c89263a0ccd0c",
-    "url": "/Petronect/static/js/main.ed20c011.chunk.js"
+    "revision": "b29e1924590b5b619a53",
+    "url": "/Petronect/static/js/main.e630eee8.chunk.js"
   },
   {
     "revision": "86a61e37a012c9dd63b4",
@@ -54,10 +54,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "4b93e6c617d763ccce257e1392050d91",
     "url": "/Petronect/static/media/estrela.4b93e6c6.svg"
-  },
-  {
-    "revision": "58f94e0de4f636f1f6f2e0b956042bd2",
-    "url": "/Petronect/static/media/filtrar.58f94e0d.svg"
   },
   {
     "revision": "f29831e0c8cfcd63249b46ce38a0186f",
