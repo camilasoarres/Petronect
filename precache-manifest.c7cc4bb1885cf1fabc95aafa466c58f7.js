@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0fb94323bbfdca2dcc25168e3ee7c43e",
+    "revision": "bec6e7ebf3b231789aa79a0cf3b6bbfc",
     "url": "/Petronect/index.html"
   },
   {
-    "revision": "308719816abc94499399",
+    "revision": "4a7ee01967fc97e0a366",
     "url": "/Petronect/static/css/main.790965af.chunk.css"
   },
   {
-    "revision": "f6ab861f852ab0db2945",
-    "url": "/Petronect/static/js/2.6e16a339.chunk.js"
+    "revision": "045fae532884120c6598",
+    "url": "/Petronect/static/js/2.02e64578.chunk.js"
   },
   {
-    "revision": "308719816abc94499399",
-    "url": "/Petronect/static/js/main.0e4484b7.chunk.js"
+    "revision": "4a7ee01967fc97e0a366",
+    "url": "/Petronect/static/js/main.a0b436ef.chunk.js"
   },
   {
     "revision": "86a61e37a012c9dd63b4",
@@ -30,6 +30,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "4ffa926e8bc725a545d0a5b8417c1087",
     "url": "/Petronect/static/media/anexar.4ffa926e.svg"
+  },
+  {
+    "revision": "c6ec2575fad12d8f1e5cd998fc71bb2c",
+    "url": "/Petronect/static/media/close-blue.c6ec2575.svg"
   },
   {
     "revision": "0d0ac886959acd6d2f865813527f9f10",
